@@ -1,3 +1,11 @@
+const app = require('./app')
+const port = process.env.PORT 
+
+app.listen(port,()=>{
+    console.log('Server is up on port '+ port)
+})
+
+
 /**
 PS C:\Users\HP\Desktop\Node-course> cd task-manager
 PS C:\Users\HP\Desktop\Node-course\task-manager> /Users/HP/mongodb/bin/mongod.exe --dbpath=/Users/HP/mongodb-data 
@@ -10,6 +18,7 @@ Here we are using-->
 500-->things go wrong bcoz of an error in the server
 */
 
+/*
 const express = require('express')
 
 //ensures mongoose connects to database
@@ -74,25 +83,24 @@ app.post('/upload',upload.single('upload'),(req,res)=>{
     res.status(400).send({error:error.message})
 })
 
-*/
+
 //parse incoming object to JSON
 app.use(express.json())
 app.use(userRouter)
 app.use(taskRouter)
 
-/*
+
 const router=new express.Router()
 router.get('/test',(req,res)=>{
     res.send("This is from my other router")
 })
 app.use(router)
-*/
+
 
 app.listen(port,()=>{
     console.log('Server is up on port '+ port)
 })
 
-/*
 const bcrypt=require('bcryptjs')
 const { collection } = require('./models/user')
 const myFunction=async()=>{
